@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+
+<input type="text" #inputField (keyup.enter)="addTodo(inputField.value)" [value]="inputText"
+  (input)="onInput($event)" />
+
+<button (click)="addTodo(inputField.value)">add</button>
+
+<div style="display: flex; margin: 5px" *ngFor="let item of data">
+  <p>{{item.text}}</p>
+  <input type="checkbox" [checked]="item.done" (change)="toggleDone(item.id)">
+  <button (click)="removeTodo(item.id)">delete</button>
+</div>
